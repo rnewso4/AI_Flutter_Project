@@ -4,6 +4,7 @@ import 'package:cafe_aux_donnees/daily_revenue.dart';
 import 'package:cafe_aux_donnees/revenue_list.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'firebase_options.dart';
 import 'package:cafe_aux_donnees/globals.dart' as globals;
 import 'package:cafe_aux_donnees/settings.dart';
@@ -13,6 +14,7 @@ dynamic userObject;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  await dotenv.load(fileName: '.env');
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
